@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="My usage: a page with messages sent per day as a bar chart, agent steps by model, and a list of chats">
+  <rect width="240" height="160" rx="12" fill="#f9f9f7"/>
+  <rect x="0.5" y="0.5" width="239" height="159" rx="11.5" fill="none" stroke="#e1e0d9"/>
+  <text x="16" y="24" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b0b0b">My usage</text>
+  <circle cx="19" cy="35" r="2.5" fill="#0ca30c"/>
+  <rect x="25" y="33" width="74" height="4" rx="2" fill="#c3c2b7"/>
+  <line x1="16" y1="44" x2="224" y2="44" stroke="#e1e0d9"/>
+  <text x="16" y="70" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0b0b0b">1,284</text>
+  <rect x="16" y="76" width="52" height="4" rx="2" fill="#898781"/>
+  <g fill="#2a78d6">
+    <rect x="86" y="70" width="7" height="10" rx="1"/>
+    <rect x="96" y="62" width="7" height="18" rx="1"/>
+    <rect x="106" y="66" width="7" height="14" rx="1"/>
+    <rect x="116" y="54" width="7" height="26" rx="1"/>
+    <rect x="126" y="60" width="7" height="20" rx="1"/>
+    <rect x="136" y="72" width="7" height="8" rx="1"/>
+    <rect x="146" y="58" width="7" height="22" rx="1"/>
+    <rect x="156" y="50" width="7" height="30" rx="1" fill="#5598e7"/>
+    <rect x="166" y="64" width="7" height="16" rx="1"/>
+    <rect x="176" y="56" width="7" height="24" rx="1"/>
+    <rect x="186" y="68" width="7" height="12" rx="1"/>
+    <rect x="196" y="61" width="7" height="19" rx="1"/>
+    <rect x="206" y="66" width="7" height="14" rx="1"/>
+    <rect x="216" y="59" width="7" height="21" rx="1"/>
+  </g>
+  <line x1="84" y1="80.5" x2="224" y2="80.5" stroke="#c3c2b7"/>
+  <line x1="16" y1="94" x2="224" y2="94" stroke="#e1e0d9"/>
+  <rect x="16" y="102" width="36" height="4" rx="2" fill="#52514e"/>
+  <rect x="16" y="112" width="70" height="6" rx="1" fill="#2a78d6"/>
+  <rect x="16" y="122" width="44" height="6" rx="1" fill="#2a78d6"/>
+  <rect x="16" y="132" width="20" height="6" rx="1" fill="#2a78d6"/>
+  <rect x="112" y="102" width="28" height="4" rx="2" fill="#52514e"/>
+  <g fill="#c3c2b7">
+    <rect x="112" y="113" width="60" height="4" rx="2"/>
+    <rect x="112" y="123" width="48" height="4" rx="2"/>
+    <rect x="112" y="133" width="54" height="4" rx="2"/>
+  </g>
+  <g fill="#52514e">
+    <rect x="186" y="113" width="14" height="4" rx="2"/>
+    <rect x="186" y="123" width="10" height="4" rx="2"/>
+    <rect x="186" y="133" width="12" height="4" rx="2"/>
+  </g>
+  <g fill="#898781">
+    <rect x="208" y="113" width="16" height="4" rx="2"/>
+    <rect x="208" y="123" width="16" height="4" rx="2"/>
+    <rect x="208" y="133" width="16" height="4" rx="2"/>
+  </g>
+  <line x1="112" y1="120" x2="224" y2="120" stroke="#e1e0d9"/>
+  <line x1="112" y1="130" x2="224" y2="130" stroke="#e1e0d9"/>
+</svg>

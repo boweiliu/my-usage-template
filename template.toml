@@ -1,0 +1,62 @@
+# Machine-readable manifest for this template. The sibling
+# template.md holds the prose, the Requirements list, and the two
+# append-only history logs; this file is authoritative for everything
+# below. Both are generated together -- validate_template.py fails if
+# they disagree.
+format = "v2"
+
+[template]
+slug = "my-usage"
+title = "My usage"
+description = "A page that shows your own usage of a Studio workspace (messages you sent and agent steps per day, steps by model, chats, apps, and the original record behind each number), drawn from a local copy of the analytics Imbue's collection takes, plus the skill that keeps that copy."
+thumbnail = "template.svg"
+version = "v1"
+
+# How this template is DERIVED from the workspace it came from. An
+# update re-runs this recipe rather than diffing two repos, which is what
+# keeps an exclusion excluded even though the thing still exists upstream.
+[recipe]
+include = ["system/apps/my_usage/", "system/supervisord.conf.d/my-usage.conf", ".agents/skills/local-analytics-copy/"]
+data_include = []
+exclude = [
+    "the hourly local-analytics-copy routine (added by the setup guide, step 4; shipped, it would fail every hour until the collection script is downloaded)",
+    "data/.skills/local-analytics-copy/ (the collected usage data; the template ships no data)",
+]
+modification_rules = []
+
+# Everything an adopter must deal with before this is really theirs.
+# permission / secret / llm = ACTIVATION (matching requires_ lines in
+# template.md); adaptation = worked through interactively with the user.
+[requirements]
+
+[[requirements.permission]]
+scope = "github-rest-api"
+permission = "github-read-repos"
+note = "fetch downloads the collection script from the private repo imbue-ai/mngr-internal (Imbue staff only). Check: latchkey curl -s -o /dev/null -w '%{http_code}\\n' https://api.github.com/repos/imbue-ai/mngr-internal prints 200. Then finish activation per system/apps/my_usage/docs/RUNBOOK-setup.md: fetch (status names a commit), first run in the background (status lists a run with exit 0), add the hourly routine (routines list shows it), open the page (workspace-layout open my-usage)."
+
+[[requirements.adaptation]]
+summary = "The collection script comes from the private repo imbue-ai/mngr-internal; an account that cannot read it has nothing to collect with"
+resolution = "The page still installs and shows its empty state. Tell the user plainly; a working replacement needs the script from a source they can read, with fetch pointed there."
+
+[[requirements.adaptation]]
+summary = "Opens and request counts per app need default-workspace-template PR #1061 (merged 2026-11-04, in no release then)"
+resolution = "Until the workspace carries it, the Apps panel lists installed apps and says the counts are not available. Nothing to rewire; check again after the next workspace update."
+
+[[requirements.adaptation]]
+summary = "Error reports (Sentry) are a different stream and are not covered"
+resolution = "Tell the user if they ask about errors; this collection never sees them."
+
+[[requirements.adaptation]]
+summary = "Adopting this template into a fresh workspace has not been tried"
+resolution = "Work through system/apps/my_usage/docs/RUNBOOK-setup.md one step at a time and check each step's result."
+
+# Nothing extra: the collection script brings its own Python packages
+# through uv on first run; latchkey, betterleaks and kingfisher are stock.
+[environment]
+apt = []
+env_d_units = []
+
+# Templates this agent used on the way to this one, oldest first.
+# A new manifest overrides its predecessor rather than accumulating
+# beside it; the commit hash is what keeps the superseded manifest
+# retrievable in the repo where it is authoritative.

@@ -1,0 +1,79 @@
+[
+  {
+    "name": "__init__.py",
+    "path": "apps/analytics/imbue/analytics/injected/__init__.py",
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "size": 0,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/__init__.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/__init__.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/__init__.py"
+  },
+  {
+    "name": "collect.py",
+    "path": "apps/analytics/imbue/analytics/injected/collect.py",
+    "sha": "91257204f4526111a6c84e19744bb5c8c58c2302",
+    "size": 11631,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/collect.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/collect.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/91257204f4526111a6c84e19744bb5c8c58c2302",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/collect.py"
+  },
+  {
+    "name": "collect_test.py",
+    "path": "apps/analytics/imbue/analytics/injected/collect_test.py",
+    "sha": "2f6f4f2fe3fd7929c10f53b747af4907fbdadb68",
+    "size": 9698,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/collect_test.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/collect_test.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/2f6f4f2fe3fd7929c10f53b747af4907fbdadb68",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/collect_test.py"
+  },
+  {
+    "name": "workspace_feeds.py",
+    "path": "apps/analytics/imbue/analytics/injected/workspace_feeds.py",
+    "sha": "71265a2e74f0d4f0f486ff68a5d5616399e9a0f0",
+    "size": 20697,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/workspace_feeds.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/workspace_feeds.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/71265a2e74f0d4f0f486ff68a5d5616399e9a0f0",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/workspace_feeds.py"
+  },
+  {
+    "name": "workspace_feeds_test.py",
+    "path": "apps/analytics/imbue/analytics/injected/workspace_feeds_test.py",
+    "sha": "93f36266ca09ce10a41de8f309e09b50d3890fc8",
+    "size": 12829,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/workspace_feeds_test.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/workspace_feeds_test.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/93f36266ca09ce10a41de8f309e09b50d3890fc8",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/workspace_feeds_test.py"
+  },
+  {
+    "name": "workspace_redaction.py",
+    "path": "apps/analytics/imbue/analytics/injected/workspace_redaction.py",
+    "sha": "057b141d8f210f2587e7532df5a12eecc59d807c",
+    "size": 27586,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/workspace_redaction.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/workspace_redaction.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/057b141d8f210f2587e7532df5a12eecc59d807c",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/workspace_redaction.py"
+  },
+  {
+    "name": "workspace_redaction_test.py",
+    "path": "apps/analytics/imbue/analytics/injected/workspace_redaction_test.py",
+    "sha": "d3677e6b933f4dfdfb9220a62f3eea05c45ac196",
+    "size": 21845,
+    "type": "file",
+    "url": "https://api.github.com/repos/imbue-ai/mngr-internal/contents/apps/analytics/imbue/analytics/injected/workspace_redaction_test.py?ref=main",
+    "html_url": "https://github.com/imbue-ai/mngr-internal/blob/main/apps/analytics/imbue/analytics/injected/workspace_redaction_test.py",
+    "git_url": "https://api.github.com/repos/imbue-ai/mngr-internal/git/blobs/d3677e6b933f4dfdfb9220a62f3eea05c45ac196",
+    "download_url": "https://raw.githubusercontent.com/imbue-ai/mngr-internal/main/apps/analytics/imbue/analytics/injected/workspace_redaction_test.py"
+  }
+]

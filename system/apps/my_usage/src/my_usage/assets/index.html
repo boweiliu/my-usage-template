@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My usage</title>
+<style>
+  :root {
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --hair: rgba(11, 11, 11, 0.10);
+    --series: #2a78d6; --series-hover: #5598e7; --wash: rgba(42, 120, 214, 0.08);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.45; }
+  .barrow { display: grid; grid-template-columns: minmax(70px, 150px) 1fr 56px; gap: 10px; align-items: center; margin: 8px 0; }
+  .barfill { height: 14px; background: var(--series); border-radius: 0 4px 4px 0; }
+  .barval { text-align: right; font-variant-numeric: tabular-nums; }
+  .note { color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 20px 64px; }
+  h1 { font-size: 22px; margin: 0 0 2px; font-weight: 650; }
+  h2 { font-size: 14px; margin: 0 0 10px; font-weight: 650; }
+  .sub, .fresh { color: var(--ink-2); font-size: 13px; margin: 0; }
+  .fresh { margin-top: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--grid); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0ca30c; margin-right: 6px; vertical-align: baseline; }
+  .filters { display: flex; gap: 12px; align-items: center; margin: 16px 0 6px; flex-wrap: wrap; }
+  .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; background: var(--surface); }
+  .seg button { border: 0; background: transparent; padding: 6px 12px; font: inherit; color: var(--ink-2); cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--grid); }
+  .seg button:hover { background: var(--wash); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  select { font: inherit; padding: 6px 10px; border: 1px solid var(--axis); border-radius: 8px; background: var(--surface); color: var(--ink); }
+  .hero { display: flex; align-items: flex-end; gap: 48px; flex-wrap: wrap; margin: 22px 0 8px; }
+  .hero-n { font-size: 64px; font-weight: 650; line-height: 1; letter-spacing: -0.02em; }
+  .hero-l { color: var(--ink-2); margin-top: 4px; }
+  .tiles { display: flex; gap: 36px; flex-wrap: wrap; padding-bottom: 6px; }
+  .tile .v { font-size: 24px; font-weight: 600; }
+  .tile .l { color: var(--ink-2); font-size: 12.5px; }
+  section.block { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--grid); }
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .link { background: none; border: 0; padding: 0; font: inherit; font-size: 12.5px; color: var(--ink-2); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .link:hover { color: var(--ink); }
+  svg text { font-family: inherit; fill: var(--muted); font-size: 11px; }
+  svg .grid { stroke: var(--grid); stroke-width: 1; }
+  svg .axis { stroke: var(--axis); stroke-width: 1; }
+  svg .bar { fill: var(--series); }
+  svg .bar.on { fill: var(--series-hover); }
+  svg .hit { fill: transparent; outline: none; }
+  svg .hit:focus-visible { stroke: var(--ink); stroke-width: 1.5; }
+  svg text.peak { fill: var(--ink-2); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--grid); }
+  th { font-weight: 600; color: var(--ink-2); font-size: 12.5px; white-space: nowrap; }
+  th button { all: unset; cursor: pointer; }
+  th button:hover { color: var(--ink); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; padding-right: 18px; }
+  td.name { max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tag { color: var(--ink-2); font-size: 12px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; gap: 0; } .hero-n { font-size: 52px; } }
+  .empty { color: var(--ink-2); max-width: 36ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .chip { border: 1px solid var(--grid); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--ink-2); }
+  .rawbtn { all: unset; cursor: pointer; color: var(--muted); font-size: 12px; text-decoration: underline; text-underline-offset: 2px; }
+  .rawbtn:hover { color: var(--ink); }
+  #tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--axis); border-radius: 8px; padding: 6px 10px; font-size: 12.5px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 5; }
+  #tip b { font-size: 15px; display: block; }
+  #tip span { color: var(--ink-2); }
+  aside#raw { position: fixed; top: 0; right: 0; bottom: 0; width: min(460px, 100%); background: var(--surface); border-left: 1px solid var(--axis); padding: 18px 18px 24px; overflow: auto; z-index: 10; box-shadow: -4px 0 18px rgba(0,0,0,0.08); }
+  aside#raw[hidden], #tip[hidden], .tbl[hidden], .chartwrap[hidden] { display: none; }
+  aside#raw pre { background: #f3f2ee; padding: 12px; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; overflow: auto; white-space: pre-wrap; word-break: break-word; }
+  aside#raw .src { color: var(--ink-2); font-size: 12.5px; margin: 4px 0 12px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>My usage</h1>
+    <p class="sub">What the local copy of your analytics holds &middot; <span id="span">&nbsp;</span></p>
+    <p class="fresh"><span class="dot"></span><span id="fresh">Loading your usage...</span></p>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <div class="seg" id="range">
+      <button data-days="7" aria-pressed="false">Last 7 days</button>
+      <button data-days="30" aria-pressed="false">Last 30 days</button>
+      <button data-days="0" aria-pressed="true">All</button>
+    </div>
+    <label>Model
+      <select id="model"><option value="all">All models</option></select>
+    </label>
+  </div>
+
+  <div id="empty" hidden><p class="empty">No activity has been collected yet. Once the local analytics copy has run, your days, chats and models show up here.</p></div>
+  <div id="content">
+  <div class="hero">
+    <div><div class="hero-n" id="heroN">0</div><div class="hero-l">messages you sent</div><p class="note" id="heroNote" hidden>Messages are not split by model, so this number ignores the model filter.</p></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+
+  <section class="block">
+    <div class="head"><h2>Messages you sent per day</h2><button class="link" data-table-for="a">Table</button></div>
+    <div class="chartwrap" id="chartA"></div><div class="tbl" id="tableA" hidden></div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Agent steps per day</h2><button class="link" data-table-for="b">Table</button></div>
+    <div class="chartwrap" id="chartB"></div><div class="tbl" id="tableB" hidden></div>
+  </section>
+
+  <section class="block two">
+    <div>
+      <h2>Agent steps by model</h2>
+      <div id="models"></div>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <div id="apps"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Chats</h2><button class="link" id="moreChats" hidden>Show all chats</button></div>
+    <table>
+      <thead><tr>
+        <th><button data-sort="name">Chat</button></th><th>Harness</th>
+        <th class="n"><button data-sort="msgs">Messages</button></th>
+        <th class="n"><button data-sort="steps">Agent steps</button></th>
+        <th><button data-sort="last">Last active</button></th><th></th>
+      </tr></thead>
+      <tbody id="chats"></tbody>
+    </table>
+  </section>
+  </div>
+</main>
+
+<aside id="raw" hidden aria-label="Original record">
+  <div class="head"><h2>Original record</h2><button class="link" id="rawClose">Close</button></div>
+  <p class="src" id="rawSrc"></p>
+  <div id="rawBody"></div>
+</aside>
+<div id="tip" role="tooltip" hidden></div>
+<script src="/assets/app.js"></script>
+</body>
+</html>
